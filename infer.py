@@ -7,8 +7,8 @@ import pickle
 
 
 model = models.resnet18(weights = models.ResNet18_Weights.IMAGENET1K_V1)
-model.conv1 = nn.Conv2d(1,64,kernel_size=(7,7),stride=(2,2),padding=(3,3),bias=False)
-model.fc = nn.Linear(in_features=512,out_features=2,bias=True)
+model.conv1 = nn.Conv2d(1, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+model.fc = nn.Linear(in_features=512, out_features=2, bias=True)
 
 model2 = efficientnet_b0(pretrained=True)
 model2.features[0][0] = nn.Conv2d(1, 32, kernel_size=3, stride=2, padding=1, bias=False)
